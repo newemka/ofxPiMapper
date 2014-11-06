@@ -81,7 +81,8 @@ void QuadSurface::draw() {
   glVertexPointer(3, GL_FLOAT, 0, quadVertices);
 
   source->getTexture()->bind();
-  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, quadIndices);
+  //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, quadIndices);
+  mesh.draw();
   source->getTexture()->unbind();
 }
 
@@ -176,6 +177,8 @@ vector<ofVec3f>& QuadSurface::getVertices() {
 vector<ofVec2f>& QuadSurface::getTexCoords() { return mesh.getTexCoords(); }
 
 void QuadSurface::calculate4dTextureCoords() {
+  return;
+  
   // Perspective Warping with OpenGL Fixed Pipeline and q coordinates
   // see:
   // http://www.reedbeta.com/blog/2012/05/26/quadrilateral-interpolation-part-1/
