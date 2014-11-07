@@ -5,6 +5,7 @@ namespace piMapper {
   SurfaceManager::SurfaceManager() {
     // Init variables
     mediaServer = NULL;
+    selectedSurface = NULL;
   }
 
 SurfaceManager::~SurfaceManager() { clear(); }

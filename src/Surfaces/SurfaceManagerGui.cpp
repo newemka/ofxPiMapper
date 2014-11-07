@@ -221,7 +221,7 @@ void SurfaceManagerGui::setMode(int newGuiMode) {
 
 void SurfaceManagerGui::drawSelectedSurfaceHighlight() {
   if (surfaceManager->getSelectedSurface() == NULL) return;
-
+  
   ofPolyline line = surfaceManager->getSelectedSurface()->getHitArea();
 
   ofPushStyle();
