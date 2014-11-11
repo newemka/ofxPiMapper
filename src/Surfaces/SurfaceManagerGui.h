@@ -29,6 +29,7 @@ class SurfaceManagerGui {
   void setSurfaceManager(SurfaceManager* newSurfaceManager);
   void setMediaServer(MediaServer* newMediaServer);
   void setMode(int newGuiMode);
+  int getMode();
   void drawSelectedSurfaceHighlight();
   void drawSelectedSurfaceTextureHighlight();
   void startDrag();

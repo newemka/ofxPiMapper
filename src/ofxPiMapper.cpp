@@ -67,6 +67,11 @@ void ofxPiMapper::draw() {
 void ofxPiMapper::keyPressed(ofKeyEventArgs &args) {
   ofLogNotice("ofxPiMapper") << "Key pressed: " << static_cast<char>(args.key);
   
+  ofVec2f upVec = ofVec2f(0, -1);
+  ofVec2f downVec = ofVec2f(0, 1);
+  ofVec2f leftVec = ofVec2f(-1, 0);
+  ofVec2f rightVec = ofVec2f(1, 0);
+  
   switch (args.key) {
     case '1':
       gui.setMode(ofx::piMapper::GuiMode::NONE);
@@ -97,6 +102,18 @@ void ofxPiMapper::keyPressed(ofKeyEventArgs &args) {
       break;
     case OF_KEY_BACKSPACE:
       surfaceManager.removeSelectedSurface();
+      break;
+    case OF_KEY_UP:
+      moveAllSurfaces(upVec);
+      break;
+    case OF_KEY_DOWN:
+      moveAllSurfaces(downVec);
+      break;
+    case OF_KEY_LEFT:
+      moveAllSurfaces(leftVec);
+      break;
+    case OF_KEY_RIGHT:
+      moveAllSurfaces(rightVec);
       break;
     default:
       break;
@@ -150,6 +167,22 @@ void ofxPiMapper::addQuadSurface() {
   surfaceManager.selectSurface(surfaceManager.size() - 1);
   
 } // addQuadSurface
+
+void ofxPiMapper::moveAllSurfaces(ofVec2f& by) {
+  if (!isSetUp) {
+    return;
+  }
+  
+  if (gui.getMode() == ofx::piMapper::GuiMode::PROJECTION_MAPPING &&
+      surfaceManager.getSelectedSurface() != NULL) {
+    return;
+  }
+  
+  std::vector<ofx::piMapper::BaseSurface*>* surfacesVector = surfaceManager.getSurfaces();
+  for (int i = 0; i < surfacesVector->size(); i++) {
+    (*surfacesVector)[i]->moveBy(by);
+  }
+}
 
 ofx::piMapper::MediaServer& ofxPiMapper::getMediaServer() {
   return mediaServer;

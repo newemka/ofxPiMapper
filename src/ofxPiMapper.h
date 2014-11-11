@@ -5,6 +5,8 @@
 #include "SurfaceManagerGui.h"
 #include "MediaServer.h"
 #include "FboSource.h"
+#include "BaseSurface.h"
+#include "GuiMode.h"
 
 #define PIMAPPER_DEF_SURFACES_XML_FILE "defaultSurfaces.xml"
 #define PIMAPPER_USER_SURFACES_XML_FILE "surfaces.xml"
@@ -24,6 +26,9 @@ public:
   // TODO: Copy/move these methods to SurfaceManager
   void addTriangleSurface();
   void addQuadSurface();
+  
+  // This is for the process installation only for now
+  void moveAllSurfaces(ofVec2f& by);
   
   // Toggle help / info
   void showInfo() { bShowInfo = true; };

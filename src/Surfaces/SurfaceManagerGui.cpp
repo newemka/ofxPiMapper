@@ -218,6 +218,10 @@ void SurfaceManagerGui::setMode(int newGuiMode) {
     projectionEditor.disable();
   }
 }
+  
+  int SurfaceManagerGui::getMode() {
+    return guiMode;
+  }
 
 void SurfaceManagerGui::drawSelectedSurfaceHighlight() {
   if (surfaceManager->getSelectedSurface() == NULL) return;

@@ -33,6 +33,7 @@ class SurfaceManager {
   void loadXmlSettings(string fileName);
   void setMediaServer(MediaServer* newMediaServer);
 
+  std::vector<BaseSurface*>* getSurfaces();
   BaseSurface* getSurface(int index);
   int size();
   BaseSurface* selectSurface(int index);

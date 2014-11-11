@@ -384,6 +384,14 @@ void SurfaceManager::deselectSurface() {
   selectedSurface = NULL;
 }
 
+  std::vector<BaseSurface*>* SurfaceManager::getSurfaces() {
+    if (!surfaces.size()) {
+      ofLogFatalError("SurfaceManager::getSurfaces") << "There are no surfaces";
+      ofExit(EXIT_FAILURE);
+    }
+    return &surfaces;
+  }
+  
 BaseSurface* SurfaceManager::getSurface(int index) {
   if (index >= surfaces.size()) {
     throw std::runtime_error("Surface index out of bounds.");
