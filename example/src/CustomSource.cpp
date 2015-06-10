@@ -36,7 +36,7 @@ void CustomSource::draw() {
   // Fill FBO with our rects
   ofClear(0);
   //ofBackground(0);
-  ofSetColor(255);
+  ofSetColor(0,0,255);
   for (int i = 0; i < rects.size(); i++) {
     ofRect(rects[i]);
   }
