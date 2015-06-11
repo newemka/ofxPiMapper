@@ -10,9 +10,9 @@ void CustomSource::setup() {
   
   // Genereate rects to be rendered into the FBO
   int numRects = 20;  // change this to add more or less rects
-  for (int i = 0; i < numRects; i++) {
-    rects.push_back(ofSetColor(0,0,255);
+  for (int i = 0; i < numRects; i++) {ofSetColor(0,0,255);
     ofFill();
+    rects.push_back(
       ofRectangle(0,
                                 ofRandom(fbo->getHeight()),
                                 fbo->getWidth(),
