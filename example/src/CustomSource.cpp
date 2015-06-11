@@ -12,6 +12,7 @@ void CustomSource::setup() {
   int numRects = 20;  // change this to add more or less rects
   for (int i = 0; i < numRects; i++) {
     rects.push_back(ofSetColor(0,0,255);
+    ofFill();
       ofRectangle(0,
                                 ofRandom(fbo->getHeight()),
                                 fbo->getWidth(),
